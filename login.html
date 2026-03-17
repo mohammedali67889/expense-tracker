@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Money Map</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      font-family: 'Segoe UI', sans-serif;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-box {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 16px;
+      width: 360px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .login-box h2 {
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: #cbd5e1;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+
+    .form-group input::placeholder {
+      color: #94a3b8;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #00ff88, #00bbff);
+      color: #000000;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, #ff0000, #ff8800);
+      color: #ffffff;
+    }
+
+    .btn-secondary:hover {
+      opacity: 0.9;
+    }
+
+    .forgot {
+      text-align: right;
+      margin-top: 0.5rem;
+    }
+
+    .forgot a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Login to Money Map</h2>
+    <div class="form-group">
+      <label for="username">Name</label>
+      <input type="text" id="username" placeholder="Enter your name">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter your password">
+    </div>
+    <div class="forgot">
+      <a href="#" onclick="alert('Reset link sent to your registered email')">Forgot Password?</a>
+    </div>
+    <button class="btn btn-primary" onclick="login()">Login</button>
+    <button class="btn btn-secondary" onclick="alert('Biometric authentication not available')">
+      <i class="fas fa-fingerprint"></i> Use Biometrics
+    </button>
+  </div>
+
+  <script>
+    const users = {
+      mohammed: '1234',
+      admin: 'adminpass',
+      guest: 'guest123'
+    };
+
+    function login() {
+      const name = document.getElementById('username').value.trim().toLowerCase();
+      const pass = document.getElementById('password').value.trim();
+
+      if (users[name] && users[name] === pass) {
+        window.location.href = 'dashboard.html'; // Make sure this file exists
+      } else {
+        alert('Invalid credentials');
+      }
+    }
+  </script>
+</body>
+</html>
